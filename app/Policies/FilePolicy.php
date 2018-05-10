@@ -7,6 +7,7 @@ use App\Models\File;
 
 class FilePolicy extends Policy
 {
+
     public function update(User $user, File $file)
     {
         // return $file->user_id == $user->id;

@@ -12,6 +12,7 @@ class FilesController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('permission:manage_files');
     }
 
 	public function index()

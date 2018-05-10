@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $groups = Group::all();
+        $groups = Group::with(['recruits' => function($query) {
+            $query->where('user_id', Auth::id());
+        }])->get();
         return view('home', compact('groups'));
     }
 }

@@ -18,6 +18,9 @@
                 @foreach($groups as $group)
                 <div class="">
                     <h3>{{ $group->name }}<small>({{ $group->description }})</small></h3>
+                    @if(isset($group->recruits[0]))
+                    <label class="label label-info pull-right">已上传文件</label>
+                    @endif
                     <div>
                         {{ $group->question }}
                     </div>
