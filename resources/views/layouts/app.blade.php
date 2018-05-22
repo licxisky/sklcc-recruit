@@ -52,6 +52,11 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                    @role('Admin')
+                                    <li><a href="{{ route('groups.index') }}">Groups</a></li>
+                                    <li><a href="{{ route('files.index') }}">Files</a></li>
+                                    <li><a href="{{ route('recruits.index') }}">Recruits</a></li>
+                                    @endrole
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

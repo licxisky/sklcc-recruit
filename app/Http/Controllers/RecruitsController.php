@@ -65,7 +65,7 @@ class RecruitsController extends Controller
     public function uploadRecruitFile(Request $request, FileUploadHandler $fileuploadhandler)
     {
         if(!$info = $fileuploadhandler->save($request->file, 'recruit', '2018_recruit')) {
-            return back()->with('error', '文件上传失败，请重试...');
+            return back()->with('error', 'File upload failed, please try again...');
         }
 
         $file = File::create($info);
@@ -78,6 +78,6 @@ class RecruitsController extends Controller
         $recruit->file_id = $file->id;
         $recruit->save();
 
-        return back()->with('success', '文件上传成功');
+        return back()->with('success', 'File uploaded successfully');
     }
 }

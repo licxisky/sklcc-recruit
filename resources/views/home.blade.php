@@ -5,7 +5,7 @@
 <div class="container">
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-            <div class="panel-heading">笔试题</div>
+            <div class="panel-heading">Questions</div>
 
             <div class="panel-body">
                 @if (session('status'))
@@ -19,7 +19,7 @@
                 <div class="">
                     <h3>{{ $group->name }}<small>({{ $group->description }})</small></h3>
                     @if(isset($group->recruits[0]))
-                    <label class="label label-info pull-right">已上传文件</label>
+                    <label class="label label-info pull-right">Uploaded</label>
                     @endif
                     <div>
                         {{ $group->question }}
@@ -29,7 +29,7 @@
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                             <input type="hidden" name="group_id" value="{{ $group->id }}">
-                            <input type="file" name="file" value="点我提交" onchange="document.getElementById('form-id-{{ $group->id }}').submit();">
+                            <input type="file" name="file" value="Submit" onchange="document.getElementById('form-id-{{ $group->id }}').submit();">
                         </form>
                     </div>
                 </div>
